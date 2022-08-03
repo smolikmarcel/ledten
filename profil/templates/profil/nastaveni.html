@@ -1,0 +1,98 @@
+{% extends 'profil/profil_layout.html' %}
+{% load static %}
+
+
+{% block profil-container %}
+
+  <h3>Nastavení</h3>
+
+  <div class="setting">
+    <!--<div class="setting-item setting-username">
+      <p>{{ user.username }}</p>
+    </div>
+
+    <div class="setting-item setting-email">
+      <p>{{ user.email }}</p>
+    </div>
+
+    <div class="setting-item setting-password">
+      <p>{{ user.password }}</p>
+    </div>
+
+    <div class="setting-item setting-phone">
+      <p>{{ Euser.phone }}</p>
+    </div>
+
+    <div class="setting-item setting-first_name">
+      <p>{{ Euser.first_name }}</p>
+    </div>
+
+    <div class="setting-item setting-last_name">
+      <p>{{ Euser.last_name }}</p>
+    </div>
+
+    <div class="setting-item setting-street">
+      <p>{{ Euser.street }}</p>
+    </div>
+
+    <div class="setting-item setting-city">
+      <p>{{ Euser.city }}</p>
+    </div>
+
+    <div class="setting-item setting-PSC">
+      <p>{{ Euser.PSC }}</p>
+    </div>
+
+    <div class="setting-img">
+
+    </div>-->
+
+    <form class="form-udaje" action="{% url 'profil:registrace' %}" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+
+      <label for="username">Uživatelké jméno:<span>*</span></label>
+      <input type="text" name="username" maxlength="150" autofocus required id="id_username">
+
+      <label for="email">Email:<span>*</span></label>
+      {{ u_user.email }}
+<!--
+      <label for="password1">Heslo:<span>*</span></label>
+      {{ u_user.password1 }}
+
+      <label for="password2">Potvrzení hesla:<span>*</span></label>
+      {{ u_user.password2 }}
+-->
+      <label for="phone">Telefon:<span>*</span></label>
+      <input type="text" name="phone" maxlength="100" value="+420 " required id="id_phone">
+
+      <label for="first_name">Jméno:<span>*</span></label>
+      {{ u_Euser.first_name }}
+
+      <label for="last_name">Příjmení:<span>*</span></label>
+      {{ u_Euser.last_name }}
+
+      <label for="street">Ulice:<span>*</span></label>
+      {{ u_Euser.street }}
+
+      <label for="city">Město:<span>*</span></label>
+      {{ u_Euser.city }}
+
+      <label for="PSC">PSČ:<span>*</span></label>
+      {{ u_Euser.PSC }}
+
+
+      {{ u_Euser.img }}
+
+      {% if messages %}
+        {% for message in messages %}
+          <div class="alert alert-{{ message.tags }}">
+            {{ message }}
+          </div>
+        {% endfor %}
+      {% endif %}
+
+      <button class="bttn-blue" type="submit" name="update">Registrovat</button>
+    </form>
+  </div>
+
+{% endblock %}

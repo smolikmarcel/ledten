@@ -1,0 +1,16 @@
+{% load static %}
+
+{% block product %}
+
+  <div class="product-card">
+    <a class="product-card-wrapper a" href="/produkty/{{ product.code }}">
+      <div class="product-card-wrapper-img">
+        <img src="{{ productImg.img.url }}" alt="{{ product.name }}">
+      </div>
+
+      <h5 class="text">{{ product.card }}</h5>
+
+      <h6 class="text">{{ product.cena }}Kč</h6>
+    </a>
+  </div>
+{% endblock %}

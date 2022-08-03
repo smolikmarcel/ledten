@@ -1,0 +1,55 @@
+{% load static %}
+
+{% block calculator %}
+  <section class="calculator">
+  <div class="wrapper">
+    <h4 class="h4 text">Kalkulačka</h4>
+
+    <div class="calculator-container">
+      <div class="calculator-container-set">
+
+        <div class="range-slider">
+          <label class="range-slider__label text">Výkon současných klascikých žárovek</label>
+          <input class="range-slider__range" type="range" value="60" min="0" max="500">
+          <span class="range-slider__value" id="range-slider__value2">0</span>
+        </div>
+
+        <div class="range-slider">
+          <label class="range-slider__label text">Výkon nových LED žárovek</label>
+          <input class="range-slider__range" type="range" value="10" min="0" max="500">
+          <span class="range-slider__value" id="range-slider__value3">0</span>
+        </div>
+
+        <div class="range-slider">
+          <label class="range-slider__label text">Cena LED žárovky</label>
+          <input class="range-slider__range" type="range" value="39" min="0" max="200">
+          <span class="range-slider__value" id="range-slider__value4">0</span>
+        </div>
+
+        <div class="range-slider">
+          <label class="range-slider__label text">Cena za kWh</label>
+          <input class="range-slider__range" type="range" value="4" min="0" max="50">
+          <span class="range-slider__value" id="range-slider__value1">0</span>
+        </div>
+
+        <div class="range-slider">
+          <label class="range-slider__label text">Počet žárovek</label>
+          <input class="range-slider__range" type="range" value="10" min="0" max="300">
+          <span class="range-slider__value" id="range-slider__value5">0</span>
+        </div>
+
+        <div class="range-slider">
+          <label class="range-slider__label text">Průměrná denní doba svícení</label>
+          <input class="range-slider__range" type="range" value="6" min="0" max="24">
+          <span class="range-slider__value" id="range-slider__value6">0</span>
+        </div>
+      </div>
+
+      <div class="calculator-container-graph why-led-graph ct-golden-section">
+        <div id="calculator-container-graph-graph" style="width: 100%; height:420px;"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% load static %}
+
+{% block why1 %}
+  <section class="why1">
+    <div class="wrapper">
+      <h4 class="h4 text">Proč LED?</h4>
+      <div class="why1-content">
+        <div class="why1-container">
+            <div class="why1-img">
+              <img src="{% static 'img/ledbulb.jpg' %}" alt="LED žárovka">
+              <h5 class="text">LED</h5>
+            </div>
+            <div class="why1-graph ct-golden-section">
+              <div id="main" style="width: 100%; height:100%;"></div>
+
+            </div>
+            <div class="why1-img">
+              <img src="{% static 'img/zarovka.jpg' %}" alt="žárovka">
+              <h5 class="text">Klasická</h5>
+            </div>
+        </div>
+
+        <p class="text">
+          LED světla jsou až o 80% účinnější než tradiční osvětlení, jako jsou zářivky a žárovky. 95% energie v LED je přeměněno na světlo a pouze 5% je zbytečné jako teplo. To je ve srovnání s fluorescenčními světly, které převádějí 95% energie na teplo a pouze 5% na světlo! LED světla také čerpají mnohem méně energie než tradiční osvětlení; Typický 84 Watt fluorescenční světlo může být nahrazeno 36 W LED, aby se dosáhlo stejné úrovně světla. Snížení spotřeby energie snižuje poptávku z elektráren a snižuje emise skleníkových plynů.
+        </p>
+
+        <a href="#">Číst více</a>
+      </div>
+
+    </div>
+  </section>
+{% endblock %}

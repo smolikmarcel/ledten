@@ -1,0 +1,225 @@
+{% extends 'base_layout.html' %}
+{% load static %}
+
+{% block content %}
+  <section class="orders">
+    <div class="wrapper">
+      <div class="orders-items">
+        <h3 class="h4 text">Objednávka</h3>
+
+        {% for x in "y"|rjust:"5" %}
+          <div class="orders-items-item ">
+            <div class="text orders-items-item-jmeno">
+              <img src="{% static 'img/e27_1.jpg' %}" alt="e27">
+              <h4>Žárovka E27 A55 5W 400LM koule teplá bílá</h4>
+            </div>
+            <form class="orders-items-item-ks" action="" method="post">
+              39Kč/ks
+              <div class="orders-items-item-ks-content">
+                <input type='button' value='' class='minus' />
+                <input type='number' min="0" size='10' class='value-number' value='1' />
+                <input type='button' value='' class='plus' />
+              </div>
+            </form>
+
+            <div class="orders-items-item-skladem">
+              <p>Skladem</p>
+            </div>
+
+            <div class="orders-items-item-cena">
+              <p class="orders-items-item-cena-celkem">390Kč</p>
+            </div>
+
+            <form class="orders-items-item-x" action="index.html" method="post">
+              <input type="button" name="x">
+            </form>
+
+          </div>
+        {% endfor %}
+
+        <div class="celkova_cena">
+          <h4 class="text">Celkem: <span>1950Kč</span></h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="order_shipping_paymant">
+    <div class="wrapper">
+
+      <div class="order_shipping_paymant-container">
+        <div class="order_shipping_paymant-container-shipping">
+          <h3 class="h4 text">Doprava</h3>
+
+          <form class="" action="index.html" method="post">
+            <label for="balik-na-postu" class="order-radio">
+              <div class="radio">
+                <input id="balik-na-postu" name="radio" type="radio" checked>
+                <label for="balik-na-postu" class="radio-label"><img src="{% static 'img/ceska-posta-balik-na-postu.png' %}" alt="balik na poštu"> ČESKÁ POŠTA - balík na poštu </label>
+              </div>
+
+              <label class="cena-blue">120Kč</label>
+            </label>
+
+            <label for="balik-do-ruky" class="order-radio">
+              <div class="radio">
+                <input id="balik-do-ruky" name="radio" type="radio" checked>
+                <label for="balik-do-ruky" class="radio-label"><img src="{% static 'img/ceska-posta-balik-do-ruky.png' %}" alt="balik do ruky"> ČESKÁ POŠTA - balík do ruky </label>
+              </div>
+
+              <label class="cena-blue">140Kč</label>
+            </label>
+
+            <label for="PPL" class="order-radio">
+              <div class="radio">
+                <input id="PPL" name="radio" type="radio" checked>
+                <label for="PPL" class="radio-label"><img src="{% static 'img/ppl.jpeg' %}" alt="PPL"> PPL </label>
+              </div>
+
+              <label class="cena-blue">99Kč</label>
+            </label>
+
+            <label for="PPL-dobirka" class="order-radio">
+              <div class="radio">
+                <input id="PPL-dobirka" name="radio" type="radio" checked>
+                <label for="PPL-dobirka" class="radio-label"><img src="{% static 'img/ppl.jpeg' %}" alt="PPL-dobírka">  PPL - dobírka </label>
+              </div>
+
+              <label class="cena-blue">120Kč</label>
+            </label>
+
+            <label for="osoni-odber" class="order-radio">
+              <div class="radio">
+                <input id="osoni-odber" name="radio" type="radio" checked>
+                <label for="osoni-odber" class="radio-label"><img src="{% static 'img/osobni-odber.png' %}" alt="osobní odběr">  Osobní odběr </label>
+              </div>
+
+              <label class="cena-blue"><span class="Zdarma1">Zdarma</span></label>
+            </label>
+
+
+            <label for="balik-na-postu-obalka" class="order-radio">
+              <div class="radio">
+                <input id="balik-na-postu-obalka" name="radio" type="radio" checked>
+                <label for="balik-na-postu-obalka" class="radio-label"><img src="{% static 'img/ceska-posta-balik-na-postu.png' %}" alt="balik na poštu obálka"> ČESKÁ POŠTA - balík na poštu obálka</label>
+              </div>
+
+              <label class="cena-blue">100Kč</label>
+            </label>
+
+            <label for="balik-do-ruky-obalka" class="order-radio">
+              <div class="radio">
+                <input id="balik-do-ruky-obalka" name="radio" type="radio" checked>
+                <label for="balik-do-ruky-obalka" class="radio-label"><img src="{% static 'img/ceska-posta-balik-do-ruky.png' %}" alt="balik do ruky obálka"> ČESKÁ POŠTA - balík do ruky obálka</label>
+              </div>
+
+              <label class="cena-blue">70Kč</label>
+            </label>
+
+            <!--<div class="radio">
+              <input id="radio-3" name="radio" type="radio" disabled>
+              <label for="radio-3" class="radio-label">Disabled</label>
+            </div>-->
+          </form>
+        </div>
+
+        <div class="order_shipping_paymant-container-paymant">
+          <h3 class="h4 text">Platba</h3>
+
+          <form class="" action="index.html" method="post">
+            <label for="dobirkou" class="order-radio">
+              <div class="radio">
+                <input id="dobirkou" name="radio" type="radio" checked>
+                <label for="dobirkou" class="radio-label"><img src="{% static 'img/paymant-cash.png' %}" alt="Dobírkou"> Dobírkou</label>
+              </div>
+
+              <label><span class="Zdarma1">Zdarma</span></label>
+            </label>
+
+            <label for="prevodem" class="order-radio">
+              <div class="radio">
+                <input id="prevodem" name="radio" type="radio" checked>
+                <label for="prevodem" class="radio-label"><img src="{% static 'img/paymant-transfer2.png' %}" alt="Převodem"> Převodem</label>
+              </div>
+
+              <label><span class="Zdarma1">Zdarma</span></label>
+            </label>
+
+            <!--<div class="radio">
+              <input id="radio-3" name="radio" type="radio" disabled>
+              <label for="radio-3" class="radio-label">Disabled</label>
+            </div>-->
+          </form>
+        </div>
+      </div>
+
+      <div class="celkova_cena">
+        <h4 class="text">Celkem: <span>140Kč</span></h4>
+      </div>
+    </div>
+  </section>
+
+  <section class="order_info">
+    <div class="wrapper">
+      <h3 class="h4 text">Dodací údaje</h3>
+
+      <div class="order_info-container">
+        <div class="order_info-container-left">
+          <h4 class="h44">Osobní údaje</h4>
+
+          <form class="form-udaje" action="index.html" method="post">
+
+            <label for="email">Email:<span>*</span></label>
+            <input type="text" name="email">
+
+            <label for="telefon">Telefon:<span>*</span></label>
+            <input type="text" name="telefon" value="+420 ">
+
+            <label for="jmeno">Jméno přijmení (název firmy):<span>*</span></label>
+            <input type="text" name="jmeno">
+
+            <label for="ulice">Ulice:<span>*</span></label>
+            <input type="text" name="ulice">
+
+            <label for="mesto">Město:<span>*</span></label>
+            <input type="text" name="mesto">
+
+            <label for="psc">PSČ:<span>*</span></label>
+            <input type="text" name="psc">
+          </form>
+        </div>
+
+        <div class="order_info-container-left">
+          <h4 class="h44">Dodací adresa</h4>
+
+          <form class="form-udaje" action="index.html" method="post">
+
+            <label for="jmeno">Jméno přijmení (název firmy):</label>
+            <input type="text" name="jmeno">
+
+            <label for="ulice">Ulice:</label>
+            <input type="text" name="ulice">
+
+            <label for="mesto">Město:</label>
+            <input type="text" name="mesto">
+
+            <label for="psc">PSČ:</label>
+            <input type="text" name="psc">
+          </form>
+        </div>
+      </div>
+
+      <div class="text order_info-bottom">
+        <form action="index.html" method="post">
+          <div class="celkova_cena">
+            <h4 class="text">1950Kč + 140Kč = <span>2090Kč</span></h4>
+          </div>
+
+          <button class="bttnb" type="button" name="button">Odeslat objednávku</button>
+        </form>
+
+        <a href="#">Chci ještě vybírat</a>
+      </div>
+    </div>
+  </section>
+{% endblock %}

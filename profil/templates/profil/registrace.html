@@ -1,0 +1,104 @@
+{% extends 'base_layout.html' %}
+{% load static %}
+
+
+{% block content %}
+
+  <div class="profil-billboard" id="registrace">
+    <div class="profil-billboard-content" id="registrace-billboard">
+      <div class="profil-billboard-content-text">
+        <div class="wrapper">
+          <div class="profil-billboard-content-frame profil-frame">
+            <h2>Registrace</h2>
+
+            <form class="form-udaje" action="{% url 'profil:registrace' %}" method="post">
+              {% csrf_token %}
+
+              <h3>Základní údaje</h3>
+
+              <label for="username">Uživatelké jméno:<span>*</span></label>
+              <input type="text" name="username" maxlength="150" autofocus required id="id_username">
+
+              <label for="email">Email:<span>*</span></label>
+              {{ form.email }}
+
+              <label for="password1">Heslo:<span>*</span></label>
+              {{ form.password1 }}
+
+              <label for="password2">Potvrzení hesla:<span>*</span></label>
+              {{ form.password2 }}
+
+
+              <label for="phone">Telefon:<span>*</span></label>
+              <input type="text" name="phone" maxlength="100" value="+420 " required id="id_phone">
+
+
+              <h3>Fakturační údaje</h3>
+
+              <label for="first_name">Jméno:<span>*</span></label>
+              {{ eForm.first_name }}
+
+              <label for="last_name">Příjmení:<span>*</span></label>
+              {{ eForm.last_name }}
+
+              <label for="street">Ulice:<span>*</span></label>
+              {{ eForm.street }}
+
+              <label for="city">Město:<span>*</span></label>
+              {{ eForm.city }}
+
+              <label for="PSC">PSČ:<span>*</span></label>
+              {{ eForm.PSC }}
+
+              <!--
+              <h3>Základní údaje</h3>
+
+              <label for="email">Email:<span>*</span></label>
+              <input type="text" name="email">
+
+              <label for="jmeno">Jméno přijmení (název firmy):</label>
+              <input type="text" name="jmeno">
+
+              <label for="PASSWORD">Heslo:<span>*</span></label>
+              <input type="password" name="PASSWORD">
+
+              <label for="PASSWORD_certificate">Potvrzení hesla:<span>*</span></label>
+              <input type="password" name="PASSWORD_certificate">
+
+              <label for="telefon">Telefon:<span>*</span></label>
+              <input type="text" name="telefon" value="+420 ">
+
+              <h3>Fakturační údaje</h3>
+
+              <label for="ulice">Ulice:</label>
+              <input type="text" name="ulice">
+
+              <label for="mesto">Město:</label>
+              <input type="text" name="mesto">
+
+              <label for="psc">PSČ:</label>
+              <input type="text" name="psc">
+              -->
+
+              {% if messages %}
+                {% for message in messages %}
+                  <div class="alert alert-{{ message.tags }}">
+                    {{ message }}
+                  </div>
+                {% endfor %}
+              {% endif %}
+
+              <button class="bttn-blue" type="submit" name="registrace">Registrovat</button>
+            </form>
+
+            <div class="profil-billboard-content-frame-a">
+              <a href="#">Přihlášení</a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

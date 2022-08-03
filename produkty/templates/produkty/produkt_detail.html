@@ -1,0 +1,118 @@
+{% extends 'base_layout.html' %}
+{% load static %}
+
+
+{% block content %}
+
+  <section class="product_detail-top product_detail-wrapper">
+    <div class="wrapper">
+        <div class="product_detail-top-left gallery">
+          {% for productImg in productImgs %}
+            {% if productImg.code == product.code %}
+              <a href="{{ productImg.img.url }}"><img src="{{ productImg.img.url }}" alt="{{ product.name }}"></a>
+            {% endif %}
+          {% endfor %}
+        </div>
+
+        <div class="product_detail-top-right">
+          <h3 class="product_detail-top-right-title ha">{{ product.jmeno }}</h3>
+
+          <p class="text product_detail-top-right-text">{{ product.shortDescription|safe }}</p>
+
+          <p class="text product_detail-top-right-cena"><span>{{ product.cena }}Kč</span>/ks</p>
+          <p class="text product_detail-top-right-cena_bez">Bez DPH 32,23 Kč/ks</p>
+
+          <p class="text product_detail-top-right-skladem">Skladem</p>
+
+          <form class="product_detail-top-right-pridat" action="index.html" method="post">
+            <label for="quantity">Množství</label>
+            <input type="number" name="quantity" min="1" value="1"><span class="text">/ks</span>
+            <div>
+              <button class="bttnb" type="button" name="add-back">Přidat do košíku</button>
+              <button class="bttnb" type="button" name="add-card">Přejít do košíku</button>
+            </div>
+          </form>
+        </div>
+      </div>
+  </section>
+
+  <section class="product_detail-popis product_detail-wrapper">
+    <div class="wrapper">
+        <h3 class="ha">Parametry</h3>
+
+
+        <div class="product_detail-popis-container">
+          <div class="product_detail-popis-container-left">
+            <h4>Detailní popis produktu</h4>
+
+            {{ product.description|safe }}
+          </div>
+
+          <div class="product_detail-popis-container-right">
+            <h4>Doplňkové Parametry</h4>
+
+            <p><span>kategorie:</span>  LED žárovky</p>
+            <p><span>Záruka:</span>  2roky</p>
+            <p><span>Výrobce: </span>{{ product.vyrobce }}</p>
+          </div>
+        </div>
+      </div>
+</section>
+
+<section>
+  <div class="wrapper">
+
+    <div class="products-container">
+      <h3 class="ha">Mohlo by se vám líbit</h3>
+
+      <div class="products-container-galery">
+        {% for prod in products %}
+          {% for productImg in productsImg %}
+            {% if productImg.code == prod.code %}
+              {% include 'product.html' with product=prod productImg=productImg %}
+            {% endif %}
+          {% endfor %}
+        {% endfor %}
+      </div>
+
+      <div class="product-container-paggination">
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="product_detail-coments product_detail-wrapper">
+    <div class="wrapper">
+        <h3 class="ha">Recenze</h3>
+
+        <div class="product_detail-coments-container">
+          {% for product in "x"|rjust:"7" %}
+          <div class="product_detail-coments-container-coment">
+            <div class="product_detail-coments-container-coment-user">
+              <img src="{% static 'img/profil-img.png' %}" alt="profil-img">
+              <h4 class="text">Alena</h4>
+              <span>6.6.2018</span>
+            </div>
+
+            <div class="product_detail-coments-container-coment-text">
+              <span>X X X X X</span>
+              <p>Toľká škoda finále, ktoré si mal Quentin nechať dlhšie zrieť v palici! Vsuvka s odvozom je vo filme zbytočná a spomaľuje ho vo chvíli, kedy má taimingovo explodovať a všetko perfektne uzavrieť. Nebyť tohto prešľapu, ktorý mi pri Quentinovom scenáristickom majstrovstve príde nepochopiteľný, šlo by o najlepšiu Tarantinovku od Pulp Fiction. Spomalený záber na nohy bežiaceho koňa, ku-klux scéna, interakcia ústrednej dvojky s DiCapriom a vypätosť ich scén, vrcholiacich príjazdom k Samuelovi za tónov Goldsmithovej “Nicaragui”, to všetko sú už teraz legendárne filmové highlighty (príjazd k Samuelovi je pre mňa filmovou scénou roku - zakaždým 100% husina). Samuelova opičia kreácia možno trochu prehrávaná, ale správne ikonická a nezabudnuteľná. Waltz a DiCaprio úžasní, Foxx postačujúcí. Soundtrack božský. Ojedinelý westernový pulp s jednou vadou na kráse, ktorú šlo ľahko opraviť.</p>
+            </div>
+
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+  </section>
+
+  {% include 'product-carousel.html' %}
+
+  <script>
+  window.onload = function() {
+      baguetteBox.run('.gallery');
+  };
+  </script>
+
+{% endblock %}

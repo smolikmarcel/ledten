@@ -1,0 +1,6 @@
+*.pyc
+__pycache__
+sass
+node_modules
+package-lock.json
+gulpfile.js

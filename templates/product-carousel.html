@@ -1,0 +1,28 @@
+{% load static %}
+
+{% block product-carousel %}
+
+  <section class="products-carousel">
+    <div class="wrapper">
+      <h4 class="h4 text">Produkty</h4>
+
+      <div class="products-carousel-container">
+
+        {% for prod in products %}
+          {% for productImg in productsImg %}
+            {% if productImg.code == prod.code %}
+              <div class="carousel-cell">
+                {% include 'product.html' with product=prod productImg=productImg %}
+              </div>
+            {% endif %}
+          {% endfor %}
+        {% endfor %}
+      </div>
+
+      <div class="products-carousel-link">
+        <a class="bttnb a" href="#">Nabídka produktů</a>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}

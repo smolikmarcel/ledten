@@ -1,0 +1,31 @@
+{% extends 'profil/profil_layout.html' %}
+{% load static %}
+
+
+{% block profil-container %}
+
+  <h3>Recenze</h3>
+
+  <div class="profil-recenze">
+    <div class="profil-recenze-container ss-container">
+      {% for product in "x"|rjust:"7" %}
+      <div class="product_detail-coments-container-coment">
+        <div class="product_detail-coments-container-coment-user">
+          <img src="{{ Euser.img.url }}" alt="profil-img">
+          <h4 class="text">Alena</h4>
+          <span>6.6.2018</span>
+        </div>
+
+        <div class="product_detail-coments-container-coment-text">
+          <span>X X X X X</span>
+          <p>Toľká škoda finále, ktoré si mal Quentin nechať dlhšie zrieť v palici! Vsuvka s odvozom je vo filme zbytočná a spomaľuje ho vo chvíli, kedy má taimingovo explodovať a všetko perfektne uzavrieť. Nebyť tohto prešľapu, ktorý mi pri Quentinovom scenáristickom majstrovstve príde nepochopiteľný, šlo by o najlepšiu Tarantinovku od Pulp Fiction. Spomalený záber na nohy bežiaceho koňa, ku-klux scéna, interakcia ústrednej dvojky s DiCapriom a vypätosť ich scén, vrcholiacich príjazdom k Samuelovi za tónov Goldsmithovej “Nicaragui”, to všetko sú už teraz legendárne filmové highlighty (príjazd k Samuelovi je pre mňa filmovou scénou roku - zakaždým 100% husina). Samuelova opičia kreácia možno trochu prehrávaná, ale správne ikonická a nezabudnuteľná. Waltz a DiCaprio úžasní, Foxx postačujúcí. Soundtrack božský. Ojedinelý westernový pulp s jednou vadou na kráse, ktorú šlo ľahko opraviť.</p>
+        </div>
+
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+
+
+{% endblock %}

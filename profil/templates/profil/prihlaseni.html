@@ -1,0 +1,45 @@
+{% extends 'base_layout.html' %}
+{% load static %}
+
+
+{% block content %}
+
+  <div class="profil-billboard">
+    <div class="profil-billboard-content">
+      <div class="profil-billboard-content-text">
+        <div class="wrapper">
+          <div class="profil-billboard-content-frame profil-frame">
+            <h2>Přihlášení</h2>
+
+            <form class="form-udaje" action="{% url 'profil:prihlaseni' %}" method="post">
+              {% csrf_token %}
+              {{ form }}
+
+              {% if messages %}
+                {% for message in messages %}
+                  <div class="alert alert-{{ message.tags }}">
+                    {{ message }}
+                    <!--<a href="#">zapoměl jsem heslo</a>-->
+                  </div>
+                {% endfor %}
+              {% endif %}
+
+
+              {% if request.GET.next %}
+                <input type="hidden" name="next" value="{{ request.GET.next }}">
+              {% endif %}
+
+              <button class="bttn-blue" type="submit" name="prihlaseni">Přihlásit</button>
+            </form>
+
+            <div class="profil-billboard-content-frame-a">
+              <a href="#">registrovat</a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

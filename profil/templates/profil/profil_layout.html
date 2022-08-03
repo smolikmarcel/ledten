@@ -1,0 +1,46 @@
+{% extends 'base_layout.html' %}
+{% load static %}
+
+
+{% block content %}
+
+  <div class="profil-billboard" id="registrace">
+    <div class="profil-billboard-content" id="registrace-billboard">
+      <div class="profil-billboard-content-text">
+        <div class="wrapper">
+          <div class="profil-user profil-frame">
+            <div class="profil-user-sidenav">
+              <div class="profil-user-sidenav-img">
+                <img src="{{ Euser.img }}" alt="profil-img">
+              </div>
+
+              <div class="profil-user-sidenav-info">
+                <h3 class="text">{{ user.username }}</h3>
+              </div>
+
+              <div class="profil-user-sidenav-list text">
+                <a href="{% url 'profil:profil' user=Euser.username %}" class="profil-user-sidenav-list-item a {% if request.resolver_match.url_name == 'profil' %} profil-user-sidenav-list-item-active {% endif %}">Profil</a>
+                <a href="{% url 'profil:objednavky' user=user.username %}" class="profil-user-sidenav-list-item a {% if request.resolver_match.url_name == 'objednavky' %} profil-user-sidenav-list-item-active {% endif %}">Objednávky</a>
+                <a href="{% url 'profil:recenze' user=user.username %}" class="profil-user-sidenav-list-item a {% if request.resolver_match.url_name == 'recenze' %} profil-user-sidenav-list-item-active {% endif %}">Recenze</a>
+                <a href="{% url 'profil:nastaveni' user=user.username %}" class="profil-user-sidenav-list-item a {% if request.resolver_match.url_name == 'nastaveni' %} profil-user-sidenav-list-item-active {% endif %}">Nastavení</a>
+
+                <form class="logout-link" action="{% url 'profil:odhlasit' %}" method="post">
+                  {% csrf_token %}
+                  <button class="profil-user-sidenav-list-item profil-logout" type="submit" name="odhlasit">Odhlásit</button>
+                </form>
+              </div>
+            </div>
+
+            <div class="profil-user-content">
+              {% block profil-container %}
+
+              {% endblock %}
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

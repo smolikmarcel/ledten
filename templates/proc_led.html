@@ -1,0 +1,36 @@
+{% extends 'base_layout.html' %}
+{% load static %}
+
+{% block content %}
+
+  <div class="header-billboard">
+    <div class="header-billboard-content">
+      <div class="header-billboard-content-text">
+        <div class="wrapper">
+          <div class="header-billboard-content-text-wrapper">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% block why1 %}{% include 'why1.html' %}{% endblock %}
+
+  {% block life %}{% include 'life.html' %}{% endblock %}
+
+  {% block toxicity %}{% include 'toxicity.html' %}{% endblock %}
+
+  {% block less %}{% include 'less.html' %}{% endblock %}
+
+  {% block patice %}{% include 'patice.html' %}{% endblock %}
+
+  {% block calculator %}{% include 'calculator.html' %}{% endblock %}
+
+  {% block product-carousel %}{% include 'product-carousel.html' %}{% endblock %}
+
+  <style media="screen">
+    .why1 a{
+      display: none;
+    }
+  </style>
+{% endblock %}

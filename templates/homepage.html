@@ -1,0 +1,48 @@
+{% extends 'base_layout.html' %}
+{% load static %}
+
+
+  {% block content %}
+
+
+      <div class="header-billboard" id="billboard-static">
+        <div class="header-billboard-content">
+          <div class="header-billboard-content-text">
+            <div class="wrapper">
+              <div class="header-billboard-content-text-wrapper">
+                <img src="{% static 'img/ledten_light.png' %}" alt="ledten">
+
+                <p>Duis aute irur dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+                <a class="bttn a text" href="#">Nabídka produktů</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="header-billboard-space">
+
+      </div>
+
+      {% block why1 %}{% include 'why1.html' %}{% endblock %}
+
+      {% block calculator %}{% include 'calculator.html' %}{% endblock %}
+
+      {% block product-carousel %}{% include 'product-carousel.html' %}{% endblock %}
+
+      <section class="zasilat">
+        <div class="wrapper">
+          <div class="zasilat-container">
+            <h4 class="h4 text">Posílat novinky</h4>
+            <p class="text">Nechte si posílat novinky, ať vám nic neujde.</p>
+
+            <form class="zasilat-container-form" action="index.html" method="post">
+              <input class="text" type="text" name="zasilat" placeholder="zde vložte svůj email">
+              <button class="text" type="button" name="button">Odeslat</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+  {% endblock %}

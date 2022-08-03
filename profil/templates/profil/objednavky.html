@@ -1,0 +1,71 @@
+{% extends 'profil/profil_layout.html' %}
+{% load static %}
+
+
+{% block profil-container %}
+  <h3>Objednavky</h3>
+
+  <div class="objednavky ss-container" id="profil-objednavky">
+    {% for product in "x"|rjust:"2" %}
+    <div class="objednavky-objekt">
+      <div class="objednavky-objekt-wrapper">
+        <div class="objednavky-objekt-wrapper-produkty">
+
+          {% for product in "x"|rjust:"2" %}
+            <div class="objednavky-objekt-wrapper-produkty-produkt">
+              <img src="{% static 'img/e27_1.jpg' %}" alt="e27">
+
+              <div class="objednavky-objekt-wrapper-produkty-produkt-popis">
+                <p class="text">Žárovka E27 A55 5W 400LM koule teplá bílá</p>
+
+                <div class="objednavky-objekt-wrapper-produkty-produkt-popis-cenaks">
+                  <p class="text"><span>36Kč</span> / 5ks</p>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+
+        </div>
+
+        <div class="objednavky-objekt-wrapper-nabidka text ">
+          <button class= "blue-bttn" type="button" name="upravit-obj">Upravit objednávku</button>
+          <button class="red-bttn" type="button" name="zrusit-obj">Zrušit objednávku</button>
+        </div>
+      </div>
+
+      <div class="objednavky-objekt-cena">
+        <p>Celkem: <span>500Kč</span></p>
+      </div>
+    </div>
+    {% endfor %}
+
+    {% for product in "x"|rjust:"5" %}
+    <div class="objednavky-objekt">
+      <div class="objednavky-objekt-wrapper">
+        <div class="objednavky-objekt-wrapper-produkty">
+
+          {% for product in "x"|rjust:"2" %}
+            <div class="objednavky-objekt-wrapper-produkty-produkt">
+              <img src="{% static 'img/e27_1.jpg' %}" alt="e27">
+
+              <div class="objednavky-objekt-wrapper-produkty-produkt-popis">
+                <p class="text">Žárovka E27 A55 5W 400LM koule teplá bílá</p>
+
+                <div class="objednavky-objekt-wrapper-produkty-produkt-popis-cenaks">
+                  <p class="text"><span>36Kč</span> / 5ks</p>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+
+        </div>
+      </div>
+
+      <div class="objednavky-objekt-cena">
+        <p>Celkem: <span>500Kč</span></p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+{% endblock %}

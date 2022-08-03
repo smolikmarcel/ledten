@@ -1,0 +1,19 @@
+{% load static %}
+
+{% block less %}
+
+  <section class="why" style=" background: #f6f6f6;">
+    <div class="wrapper">
+      <div class="why-content">
+        <div class="why-container" style="margin-top: 20px;">
+            <h4 class="h4 text">Menší světelná spotřeba</h4>
+            <p>LED diody mají lepší kvalitu rozložení světla a zaměřují světlo v jednom směru, na rozdíl od jiných typů osvětlení, které způsobují ztrátu energie tím, že vydávají světlo ve všech směrech, často osvětlující oblasti, kde se světlo nevyžaduje (například strop). To znamená, že pro dosažení stejné úrovně jasu, kterou vypouští fluorescenční a žárovkové světlo, je zapotřebí méně LED. Méně osvětlení sníží spotřebu energie a bude proto přínosem pro životní prostředí.</p>
+        </div>
+
+        <img src="{% static 'img/less.png' %}" alt="LED žárovka">
+      </div>
+
+    </div>
+  </section>
+
+{% endblock %}
